@@ -17,8 +17,8 @@ public class ConstantBuilderImpl implements ConstantBuilder, ConstantBuilder.Con
 
 	@Override
 	public ConstantConcatBuilder addModInteger(GrammarElement grammarElement) {
-		// TODO Auto-generated method stub
-		return null;
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override

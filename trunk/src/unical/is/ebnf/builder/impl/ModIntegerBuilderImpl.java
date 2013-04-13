@@ -17,8 +17,8 @@ public class ModIntegerBuilderImpl implements ModIntegerBuilder, ModIntegerBuild
 
 	@Override
 	public ModIntegerConcatBuilder addDigit(GrammarElement grammarElement) {
-		// TODO Auto-generated method stub
-		return null;
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override
