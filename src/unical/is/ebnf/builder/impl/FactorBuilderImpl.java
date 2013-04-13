@@ -17,20 +17,20 @@ public class FactorBuilderImpl implements FactorBuilder, FactorBuilder.FactorCon
 
 	@Override
 	public FactorConcatBuilder addConstant(GrammarElement grammarElement) {
-		// TODO Auto-generated method stub
-		return null;
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override
 	public FactorConcatBuilder addVariable(GrammarElement grammarElement) {
-		// TODO Auto-generated method stub
-		return null;
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override
 	public FactorConcatBuilder addExpression(GrammarElement grammarElement) {
-		// TODO Auto-generated method stub
-		return null;
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override

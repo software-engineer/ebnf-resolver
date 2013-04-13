@@ -17,14 +17,14 @@ public class TermBuilderImpl implements TermBuilder, TermBuilder.TermConcatBuild
 
 	@Override
 	public TermBuilder addMulOperator(GrammarElement grammarElement) {
-		// TODO Auto-generated method stub
-		return null;
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override
 	public TermConcatBuilder addFactor(GrammarElement grammarElement) {
-		// TODO Auto-generated method stub
-		return null;
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override

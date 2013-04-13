@@ -16,15 +16,15 @@ public class ExpressionBuilderImpl implements ExpressionBuilder, ExpressionBuild
 	private GrammarElement	grammarElement;
 
 	@Override
-	public ExpressionConcatBuilder addTerm(GrammarElement gr) {
-		// TODO Auto-generated method stub
-		return null;
+	public ExpressionConcatBuilder addTerm(GrammarElement grammarElement) {
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override
-	public ExpressionBuilder addAddOperator(GrammarElement gr) {
-		// TODO Auto-generated method stub
-		return null;
+	public ExpressionBuilder addAddOperator(GrammarElement grammarElement) {
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override

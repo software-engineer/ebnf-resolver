@@ -17,8 +17,8 @@ public class VariableBuilderImpl implements VariableBuilder, VariableBuilder.Var
 
 	@Override
 	public VariableConcatBuilder addIdentifier(GrammarElement grammarElement) {
-		// TODO Auto-generated method stub
-		return null;
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override

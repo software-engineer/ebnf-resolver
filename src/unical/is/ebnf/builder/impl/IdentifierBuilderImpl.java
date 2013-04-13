@@ -17,14 +17,14 @@ public class IdentifierBuilderImpl implements IdentifierBuilder, IdentifierBuild
 
 	@Override
 	public IdentifierConcatBuilder addLetter(GrammarElement grammarElement) {
-		// TODO Auto-generated method stub
-		return null;
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override
 	public IdentifierConcatBuilder addDigit(GrammarElement grammarElement) {
-		// TODO Auto-generated method stub
-		return null;
+		getGrammarElement().add(grammarElement);
+		return this;
 	}
 
 	@Override
