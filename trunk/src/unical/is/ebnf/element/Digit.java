@@ -9,4 +9,9 @@ package unical.is.ebnf.element;
  */
 public class Digit extends GrammarElement {
 
+	@Override
+	public GrammarElement getGrammarElement() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
