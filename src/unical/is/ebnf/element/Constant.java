@@ -17,6 +17,14 @@ public class Constant extends GrammarElement {
 	}
 
 	@Override
+	public GrammarElement getResult() {
+		return getGrammarElement();
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
 	public GrammarElement getGrammarElement() {
 		if (grammarElement == null) {
 			grammarElement = new Constant();

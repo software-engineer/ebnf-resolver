@@ -20,7 +20,17 @@ public class Term extends GrammarElement {
 	}
 
 	@Override
-	public List<GrammarElement> getGrammarElementList() {
+	public GrammarElement getResult() {
+		GrammarElement result = new Term();
+
+		for (GrammarElement grammarElement : getGrammarElementList()) {
+			// TODO: chaining result with each grammarElement
+		}
+
+		return result;
+	}
+
+	private List<GrammarElement> getGrammarElementList() {
 		if (grammarElementList == null) {
 			grammarElementList = new ArrayList<GrammarElement>();
 		}
