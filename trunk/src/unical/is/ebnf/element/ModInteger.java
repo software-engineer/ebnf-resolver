@@ -17,7 +17,11 @@ public class ModInteger extends GrammarElement {
 	}
 
 	@Override
-	public GrammarElement getGrammarElement() {
+	public GrammarElement getResult() {
+		return getGrammarElement();
+	}
+
+	private GrammarElement getGrammarElement() {
 		if (grammarElement == null) {
 			grammarElement = new ModInteger();
 		}

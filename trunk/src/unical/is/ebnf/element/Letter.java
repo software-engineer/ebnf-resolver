@@ -10,7 +10,7 @@ package unical.is.ebnf.element;
 public class Letter extends GrammarElement {
 
 	@Override
-	public GrammarElement getGrammarElement() {
+	public GrammarElement getResult() {
 		// TODO Auto-generated method stub
 		return null;
 	}

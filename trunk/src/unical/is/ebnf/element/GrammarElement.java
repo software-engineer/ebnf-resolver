@@ -3,7 +3,6 @@
  */
 package unical.is.ebnf.element;
 
-import java.util.List;
 
 /**
  * @author Marilena Paldino
@@ -11,15 +10,9 @@ import java.util.List;
  */
 public abstract class GrammarElement {
 
+	public abstract GrammarElement getResult();
+
 	public void add(GrammarElement grammarElement) {
-		throw new UnsupportedOperationException();
-	}
-
-	public GrammarElement getGrammarElement() {
-		throw new UnsupportedOperationException();
-	}
-
-	public List<GrammarElement> getGrammarElementList() {
 		throw new UnsupportedOperationException();
 	}
 }
