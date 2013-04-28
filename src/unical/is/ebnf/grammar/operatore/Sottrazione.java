@@ -3,7 +3,6 @@
  */
 package unical.is.ebnf.grammar.operatore;
 
-import unical.is.ebnf.grammar.Espressione;
 import unical.is.ebnf.visitor.Visitatore;
 
 /**
@@ -11,9 +10,6 @@ import unical.is.ebnf.visitor.Visitatore;
  * 
  */
 public class Sottrazione extends OperatoreAstratto {
-
-	protected Espressione	leftGrammarElement;
-	protected Espressione	rightGrammarElement;
 
 	/**
 	 * {@inheritDoc}
