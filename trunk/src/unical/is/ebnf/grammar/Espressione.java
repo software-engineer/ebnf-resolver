@@ -11,6 +11,6 @@ import unical.is.ebnf.visitor.Visitabile;
  */
 public interface Espressione extends Visitabile {
 
-	String getValue();
+	public String getValue();
 
 }

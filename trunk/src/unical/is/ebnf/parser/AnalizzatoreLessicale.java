@@ -73,5 +73,4 @@ public class AnalizzatoreLessicale {
 
 		return simbolo;
 	}
-
 }
