@@ -11,11 +11,11 @@ import unical.is.ebnf.grammar.Espressione;
  */
 public interface Operatore extends Espressione {
 
-	void setLeft(Espressione element);
+	public void setLeft(Espressione element);
 
-	void setRight(Espressione element);
+	public void setRight(Espressione element);
 
-	Espressione getLeft();
+	public Espressione getLeft();
 
-	Espressione getRight();
+	public Espressione getRight();
 }

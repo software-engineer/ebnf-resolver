@@ -9,9 +9,9 @@ import unical.is.ebnf.parser.Simbolo;
  */
 public class OperatoreBuilderImpl implements OperatoreBuilder {
 
-	Espressione	leftGrammarElement;
-	Espressione	rightGrammarElement;
-	Simbolo		simbolo;
+	private Espressione	leftGrammarElement;
+	private Espressione	rightGrammarElement;
+	private Simbolo		simbolo;
 
 	/**
 	 * {@inheritDoc}

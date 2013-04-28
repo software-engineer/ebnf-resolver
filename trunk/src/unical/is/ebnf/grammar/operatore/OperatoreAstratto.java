@@ -12,6 +12,9 @@ import unical.is.ebnf.visitor.Visitatore;
  */
 public abstract class OperatoreAstratto implements Operatore {
 
+	private Espressione	leftGrammarElement;
+	private Espressione	rightGrammarElement;
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -22,18 +25,16 @@ public abstract class OperatoreAstratto implements Operatore {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setLeft(Espressione element) {
-		// TODO Auto-generated method stub
-
+	public void setLeft(Espressione espressione) {
+		this.leftGrammarElement = espressione;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setRight(Espressione element) {
-		// TODO Auto-generated method stub
-
+	public void setRight(Espressione espressione) {
+		this.rightGrammarElement = espressione;
 	}
 
 	/**
@@ -41,8 +42,7 @@ public abstract class OperatoreAstratto implements Operatore {
 	 */
 	@Override
 	public Espressione getLeft() {
-		// TODO Auto-generated method stub
-		return null;
+		return leftGrammarElement;
 	}
 
 	/**
@@ -50,8 +50,7 @@ public abstract class OperatoreAstratto implements Operatore {
 	 */
 	@Override
 	public Espressione getRight() {
-		// TODO Auto-generated method stub
-		return null;
+		return rightGrammarElement;
 	}
 
 	/**
@@ -59,7 +58,6 @@ public abstract class OperatoreAstratto implements Operatore {
 	 */
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

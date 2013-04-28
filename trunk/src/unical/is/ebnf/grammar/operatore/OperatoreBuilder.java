@@ -9,11 +9,11 @@ import unical.is.ebnf.parser.Simbolo;
  */
 public interface OperatoreBuilder {
 
-	OperatoreBuilder setLeftEspressione(Espressione grammarElement);
+	public OperatoreBuilder setLeftEspressione(Espressione grammarElement);
 
-	OperatoreBuilder setRightEspressione(Espressione grammarElement);
+	public OperatoreBuilder setRightEspressione(Espressione grammarElement);
 
-	OperatoreBuilder setOperand(Simbolo operand);
+	public OperatoreBuilder setOperand(Simbolo operand);
 
-	Operatore build();
+	public Operatore build();
 }
