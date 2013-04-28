@@ -15,7 +15,7 @@ import unical.is.ebnf.grammar.operatore.Sottrazione;
  * @author Marilena Paldino
  * 
  */
-public class ValutaVisitatore implements Visitatore {
+public class Valuta implements Visitatore {
 
 	private Contesto	contesto;
 	private double		valore;
