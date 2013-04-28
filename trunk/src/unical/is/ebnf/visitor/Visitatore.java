@@ -13,16 +13,16 @@ import unical.is.ebnf.grammar.operatore.Sottrazione;
  */
 public interface Visitatore {
 
-	void visita(Costante costante);
+	public void visita(Costante costante);
 
-	void visita(Variabile variabile);
+	public void visita(Variabile variabile);
 
-	void visita(Divisione divisione);
+	public void visita(Divisione divisione);
 
-	void visita(Moltiplicazione moltiplicazione);
+	public void visita(Moltiplicazione moltiplicazione);
 
-	void visita(Somma somma);
+	public void visita(Somma somma);
 
-	void visita(Sottrazione sottrazione);
+	public void visita(Sottrazione sottrazione);
 
 }

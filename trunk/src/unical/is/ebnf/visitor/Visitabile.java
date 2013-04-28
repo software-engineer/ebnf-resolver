@@ -6,5 +6,5 @@ package unical.is.ebnf.visitor;
  */
 public interface Visitabile {
 
-	void ricevi(Visitatore visitatore);
+	public void ricevi(Visitatore visitatore);
 }

@@ -92,6 +92,11 @@ public class Valuta implements Visitatore {
 		});
 	}
 
+	/**
+	 * 
+	 * @param operatore
+	 * @param operazione
+	 */
 	private void visitaOperatore(Operatore operatore, Operazione operazione) {
 		operatore.getLeft().ricevi(this);
 		double valore1 = this.valore;
@@ -101,11 +106,32 @@ public class Valuta implements Visitatore {
 		this.valore = operazione.esegui(valore1, valore2);
 	}
 
+	/**
+	 * @author Marilena Paldino
+	 * 
+	 */
 	public interface Contesto {
+
+		/**
+		 * 
+		 * @param variabile
+		 * @return
+		 */
 		double getValore(String variabile);
 	}
 
+	/**
+	 * @author Marilena Paldino
+	 * 
+	 */
 	private interface Operazione {
+
+		/**
+		 * 
+		 * @param operatore1
+		 * @param operatore2
+		 * @return
+		 */
 		double esegui(double operatore1, double operatore2);
 	}
 }

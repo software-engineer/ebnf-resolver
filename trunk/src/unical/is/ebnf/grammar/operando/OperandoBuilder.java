@@ -6,7 +6,7 @@ package unical.is.ebnf.grammar.operando;
  */
 public interface OperandoBuilder {
 
-	OperandoBuilder setValue(String value);
+	public OperandoBuilder setValue(String value);
 
-	Operando build();
+	public Operando build();
 }
