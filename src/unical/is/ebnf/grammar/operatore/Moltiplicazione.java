@@ -16,7 +16,6 @@ public class Moltiplicazione extends OperatoreAstratto {
 	 */
 	@Override
 	public void ricevi(Visitatore visitor) {
-		// TODO Auto-generated method stub
-
+		visitor.visita(this);
 	}
 }
