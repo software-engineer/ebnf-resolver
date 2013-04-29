@@ -62,7 +62,7 @@ public class RDPB {
 			simbolo = analizzatoreLessicale.prossimoSimbolo();
 		} else if (simbolo.equals(Simbolo.TONDA_APERTA)) {
 			espressione();
-			analizzatoreLessicale.prossimoSimbolo(); // salta ")"
+			simbolo = analizzatoreLessicale.prossimoSimbolo(); // salta ")"
 		} else {
 			throw new IllegalArgumentException();
 		}
