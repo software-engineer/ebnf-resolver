@@ -14,6 +14,7 @@ public class Infissa implements Rappresentazione {
 	@Override
 	public String rappresenta(String operatore1, String operatore2, String operando) {
 		StringBuffer buffer = new StringBuffer();
+
 		buffer.append("(")
 				.append(operatore1)
 				.append(operando)
