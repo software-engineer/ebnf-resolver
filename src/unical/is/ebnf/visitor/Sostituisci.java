@@ -44,7 +44,7 @@ public class Sostituisci implements Visitatore {
 	 */
 	@Override
 	public void visita(Variabile variabile) {
-		if (variabile.getValue().equals(this.variabile)) {
+		if (variabile.equals(this.variabile)) {
 			this.espressioneCopia = target;
 		} else {
 			this.espressioneCopia = new Variabile(variabile.getValue());
