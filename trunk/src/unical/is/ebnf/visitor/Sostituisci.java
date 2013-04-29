@@ -8,6 +8,7 @@ import unical.is.ebnf.grammar.operando.Costante;
 import unical.is.ebnf.grammar.operando.Variabile;
 import unical.is.ebnf.grammar.operatore.Divisione;
 import unical.is.ebnf.grammar.operatore.Moltiplicazione;
+import unical.is.ebnf.grammar.operatore.Operatore;
 import unical.is.ebnf.grammar.operatore.Somma;
 import unical.is.ebnf.grammar.operatore.Sottrazione;
 
@@ -16,12 +17,18 @@ import unical.is.ebnf.grammar.operatore.Sottrazione;
  */
 public class Sostituisci implements Visitatore {
 
+	private Variabile variabile;
+	private Espressione target;
+
+	private Espressione espressioneCopia;
+
 	public Espressione rimpiazza(Espressione espressione, Variabile variabile, Espressione target) {
-		// TODO
+		this.variabile = variabile;
+		this.target = target;
 
 		espressione.ricevi(this);
 
-		return null;
+		return espressioneCopia;
 	}
 
 	/**
@@ -29,8 +36,7 @@ public class Sostituisci implements Visitatore {
 	 */
 	@Override
 	public void visita(Costante costante) {
-		// TODO Auto-generated method stub
-
+		this.espressioneCopia = new Costante(costante.getValue());
 	}
 
 	/**
@@ -38,8 +44,11 @@ public class Sostituisci implements Visitatore {
 	 */
 	@Override
 	public void visita(Variabile variabile) {
-		// TODO Auto-generated method stub
-
+		if (variabile.getValue().equals(this.variabile)) {
+			this.espressioneCopia = target;
+		} else {
+			this.espressioneCopia = new Variabile(variabile.getValue());
+		}
 	}
 
 	/**
@@ -47,8 +56,7 @@ public class Sostituisci implements Visitatore {
 	 */
 	@Override
 	public void visita(Divisione divisione) {
-		// TODO Auto-generated method stub
-
+		visitaOperatore(divisione, new Divisione());
 	}
 
 	/**
@@ -56,8 +64,7 @@ public class Sostituisci implements Visitatore {
 	 */
 	@Override
 	public void visita(Moltiplicazione moltiplicazione) {
-		// TODO Auto-generated method stub
-
+		visitaOperatore(moltiplicazione, new Moltiplicazione());
 	}
 
 	/**
@@ -65,8 +72,7 @@ public class Sostituisci implements Visitatore {
 	 */
 	@Override
 	public void visita(Somma somma) {
-		// TODO Auto-generated method stub
-
+		visitaOperatore(somma, new Somma());
 	}
 
 	/**
@@ -74,8 +80,21 @@ public class Sostituisci implements Visitatore {
 	 */
 	@Override
 	public void visita(Sottrazione sottrazione) {
-		// TODO Auto-generated method stub
-
+		visitaOperatore(sottrazione, new Sottrazione());
 	}
 
+	/**
+	 * @param operatore
+	 * @param operazione
+	 */
+	private void visitaOperatore(Operatore operatore, Operatore operatoreCopia) {
+		operatore.getLeft().ricevi(this);
+		Espressione espressioneLeft = this.espressioneCopia;
+		operatore.getRight().ricevi(this);
+		Espressione espressioneRight = this.espressioneCopia;
+
+		operatoreCopia.setLeft(espressioneLeft);
+		operatoreCopia.setRight(espressioneRight);
+		this.espressioneCopia = operatoreCopia;
+	}
 }
