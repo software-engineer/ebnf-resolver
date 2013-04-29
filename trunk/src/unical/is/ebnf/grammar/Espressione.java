@@ -7,10 +7,7 @@ import unical.is.ebnf.visitor.Visitabile;
 
 /**
  * @author Marilena Paldino
- * 
  */
 public interface Espressione extends Visitabile {
-
-	public String getValue();
 
 }

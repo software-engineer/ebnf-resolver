@@ -8,12 +8,11 @@ import unical.is.ebnf.visitor.Visitatore;
 
 /**
  * @author Marilena Paldino
- * 
  */
 public abstract class OperatoreAstratto implements Operatore {
 
-	private Espressione	leftGrammarElement;
-	private Espressione	rightGrammarElement;
+	private Espressione leftGrammarElement;
+	private Espressione rightGrammarElement;
 
 	/**
 	 * {@inheritDoc}
@@ -51,14 +50,5 @@ public abstract class OperatoreAstratto implements Operatore {
 	@Override
 	public Espressione getRight() {
 		return rightGrammarElement;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String getValue() {
-		// TODO
-		return null;
 	}
 }
