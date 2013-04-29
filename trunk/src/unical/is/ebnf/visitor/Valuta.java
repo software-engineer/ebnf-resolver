@@ -18,16 +18,16 @@ import unical.is.ebnf.visitor.contesto.Contesto;
  */
 public class Valuta implements Visitatore {
 
-	private Espressione espressione;
 	private Contesto contesto;
 
 	private double valore;
 
 	public int valuta(Espressione espressione, Contesto contesto) {
-		// TODO
-		this.espressione = espressione;
 		this.contesto = contesto;
-		return 0;
+
+		espressione.ricevi(this);
+
+		return Double.valueOf(valore).intValue();
 	}
 
 	/**

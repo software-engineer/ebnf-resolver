@@ -3,6 +3,7 @@
  */
 package unical.is.ebnf.visitor;
 
+import unical.is.ebnf.grammar.Espressione;
 import unical.is.ebnf.grammar.operando.Costante;
 import unical.is.ebnf.grammar.operando.Variabile;
 import unical.is.ebnf.grammar.operatore.Divisione;
@@ -12,9 +13,13 @@ import unical.is.ebnf.grammar.operatore.Sottrazione;
 
 /**
  * @author Marilena Paldino
- *
  */
 public class Copia implements Visitatore {
+
+	public Espressione copia(Espressione espressione) {
+		// TODO
+		return null;
+	}
 
 	/**
 	 * {@inheritDoc}

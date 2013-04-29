@@ -3,6 +3,7 @@
  */
 package unical.is.ebnf.visitor;
 
+import unical.is.ebnf.grammar.Espressione;
 import unical.is.ebnf.grammar.operando.Costante;
 import unical.is.ebnf.grammar.operando.Variabile;
 import unical.is.ebnf.grammar.operatore.Divisione;
@@ -12,9 +13,16 @@ import unical.is.ebnf.grammar.operatore.Sottrazione;
 
 /**
  * @author Marilena Paldino
- *
  */
-public class Rimpiazza implements Visitatore {
+public class Sostituisci implements Visitatore {
+
+	public Espressione rimpiazza(Espressione espressione, Variabile variabile, Espressione target) {
+		// TODO
+
+		espressione.ricevi(this);
+
+		return null;
+	}
 
 	/**
 	 * {@inheritDoc}
