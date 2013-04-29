@@ -3,26 +3,39 @@
  */
 package unical.is.ebnf.visitor;
 
+import unical.is.ebnf.grammar.Espressione;
 import unical.is.ebnf.grammar.operando.Costante;
 import unical.is.ebnf.grammar.operando.Variabile;
 import unical.is.ebnf.grammar.operatore.Divisione;
 import unical.is.ebnf.grammar.operatore.Moltiplicazione;
+import unical.is.ebnf.grammar.operatore.Operatore;
 import unical.is.ebnf.grammar.operatore.Somma;
 import unical.is.ebnf.grammar.operatore.Sottrazione;
+import unical.is.ebnf.visitor.stampa.Infissa;
+import unical.is.ebnf.visitor.stampa.Rappresentazione;
 
 /**
  * @author Marilena Paldino
- *
  */
 public class StampaInfissa implements Visitatore {
+
+	private Rappresentazione rappresentazione;
+
+	private String valore;
+
+	public String stampaInfissa(Espressione espressione) {
+		this.rappresentazione = new Infissa();
+		espressione.ricevi(this);
+
+		return valore;
+	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void visita(Costante costante) {
-		// TODO Auto-generated method stub
-
+		this.valore = costante.getValue();
 	}
 
 	/**
@@ -30,8 +43,7 @@ public class StampaInfissa implements Visitatore {
 	 */
 	@Override
 	public void visita(Variabile variabile) {
-		// TODO Auto-generated method stub
-
+		this.valore = variabile.getValue();
 	}
 
 	/**
@@ -39,8 +51,7 @@ public class StampaInfissa implements Visitatore {
 	 */
 	@Override
 	public void visita(Divisione divisione) {
-		// TODO Auto-generated method stub
-
+		visitaOperatore(divisione, "/");
 	}
 
 	/**
@@ -48,8 +59,7 @@ public class StampaInfissa implements Visitatore {
 	 */
 	@Override
 	public void visita(Moltiplicazione moltiplicazione) {
-		// TODO Auto-generated method stub
-
+		visitaOperatore(moltiplicazione, "*");
 	}
 
 	/**
@@ -57,8 +67,7 @@ public class StampaInfissa implements Visitatore {
 	 */
 	@Override
 	public void visita(Somma somma) {
-		// TODO Auto-generated method stub
-
+		visitaOperatore(somma, "+");
 	}
 
 	/**
@@ -66,8 +75,19 @@ public class StampaInfissa implements Visitatore {
 	 */
 	@Override
 	public void visita(Sottrazione sottrazione) {
-		// TODO Auto-generated method stub
-
+		visitaOperatore(sottrazione, "-");
 	}
 
+	/**
+	 * @param operatore
+	 * @param simboloOperatore
+	 */
+	private void visitaOperatore(Operatore operatore, String simboloOperatore) {
+		operatore.getLeft().ricevi(this);
+		String valore1 = this.valore;
+		operatore.getRight().ricevi(this);
+		String valore2 = this.valore;
+
+		this.valore = rappresentazione.rappresenta(valore1, valore2, simboloOperatore);
+	}
 }
