@@ -16,9 +16,13 @@ import unical.is.ebnf.grammar.operatore.Sottrazione;
  */
 public class Copia implements Visitatore {
 
+	Espressione espressioneCopia;
+
 	public Espressione copia(Espressione espressione) {
 		// TODO
-		return null;
+
+		espressione.ricevi(this);
+		return espressioneCopia;
 	}
 
 	/**
