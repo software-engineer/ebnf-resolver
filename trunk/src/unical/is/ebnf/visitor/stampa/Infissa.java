@@ -17,7 +17,9 @@ public class Infissa implements Rappresentazione {
 
 		buffer.append("(")
 				.append(operatore1)
+				.append(", ")
 				.append(operando)
+				.append(", ")
 				.append(operatore2)
 				.append(")");
 

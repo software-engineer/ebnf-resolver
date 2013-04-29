@@ -17,7 +17,9 @@ public class Postfissa implements Rappresentazione {
 
 		buffer.append("(")
 				.append(operatore1)
+				.append(", ")
 				.append(operatore2)
+				.append(", ")
 				.append(operando)
 				.append(")");
 
