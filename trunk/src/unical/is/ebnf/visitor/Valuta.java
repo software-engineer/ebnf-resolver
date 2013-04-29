@@ -3,6 +3,7 @@
  */
 package unical.is.ebnf.visitor;
 
+import unical.is.ebnf.grammar.Espressione;
 import unical.is.ebnf.grammar.operando.Costante;
 import unical.is.ebnf.grammar.operando.Variabile;
 import unical.is.ebnf.grammar.operatore.Divisione;
@@ -10,15 +11,24 @@ import unical.is.ebnf.grammar.operatore.Moltiplicazione;
 import unical.is.ebnf.grammar.operatore.Operatore;
 import unical.is.ebnf.grammar.operatore.Somma;
 import unical.is.ebnf.grammar.operatore.Sottrazione;
+import unical.is.ebnf.visitor.contesto.Contesto;
 
 /**
  * @author Marilena Paldino
- * 
  */
 public class Valuta implements Visitatore {
 
-	private Contesto	contesto;
-	private double		valore;
+	private Espressione espressione;
+	private Contesto contesto;
+
+	private double valore;
+
+	public int valuta(Espressione espressione, Contesto contesto) {
+		// TODO
+		this.espressione = espressione;
+		this.contesto = contesto;
+		return 0;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -93,7 +103,6 @@ public class Valuta implements Visitatore {
 	}
 
 	/**
-	 * 
 	 * @param operatore
 	 * @param operazione
 	 */
@@ -108,26 +117,10 @@ public class Valuta implements Visitatore {
 
 	/**
 	 * @author Marilena Paldino
-	 * 
-	 */
-	public interface Contesto {
-
-		/**
-		 * 
-		 * @param variabile
-		 * @return
-		 */
-		double getValore(String variabile);
-	}
-
-	/**
-	 * @author Marilena Paldino
-	 * 
 	 */
 	private interface Operazione {
 
 		/**
-		 * 
 		 * @param operatore1
 		 * @param operatore2
 		 * @return
