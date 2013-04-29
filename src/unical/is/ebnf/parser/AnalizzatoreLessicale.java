@@ -9,14 +9,13 @@ import java.io.StreamTokenizer;
 
 /**
  * @author Marilena Paldino
- * 
  */
 public class AnalizzatoreLessicale {
 
-	private final StreamTokenizer	input;
-	private Simbolo					simbolo;
+	private final StreamTokenizer input;
+	private Simbolo simbolo;
 
-	private AnalizzatoreLessicale(InputStream in) {
+	public AnalizzatoreLessicale(InputStream in) {
 		Reader reader = new BufferedReader(new InputStreamReader(in));
 		input = new StreamTokenizer(reader);
 		input.resetSyntax();
