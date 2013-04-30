@@ -5,13 +5,12 @@ import unical.is.ebnf.parser.Simbolo;
 
 /**
  * @author Marilena Paldino
- * 
  */
 public class OperatoreBuilderImpl implements OperatoreBuilder {
 
-	private Espressione	leftGrammarElement;
-	private Espressione	rightGrammarElement;
-	private Simbolo		simbolo;
+	private Espressione leftGrammarElement;
+	private Espressione rightGrammarElement;
+	private Simbolo simbolo;
 
 	/**
 	 * {@inheritDoc}
@@ -47,15 +46,20 @@ public class OperatoreBuilderImpl implements OperatoreBuilder {
 	public Operatore build() {
 		Operatore operand;
 
-		if (Simbolo.DIF.equals(simbolo)) {
+		switch (simbolo) {
+		case DIF:
 			operand = new Sottrazione();
-		} else if (Simbolo.DIV.equals(simbolo)) {
+			break;
+		case DIV:
 			operand = new Divisione();
-		} else if (Simbolo.MUL.equals(simbolo)) {
+			break;
+		case MUL:
 			operand = new Moltiplicazione();
-		} else if (Simbolo.SUM.equals(simbolo)) {
+			break;
+		case SUM:
 			operand = new Somma();
-		} else {
+			break;
+		default:
 			throw new IllegalArgumentException();
 		}
 
