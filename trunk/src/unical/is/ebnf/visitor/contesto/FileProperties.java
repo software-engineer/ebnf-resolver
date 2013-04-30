@@ -28,7 +28,7 @@ public class FileProperties {
 		try {
 
 			// TODO da dove prendere il file??
-			properties.load(FileProperties.class.getClassLoader().getResourceAsStream("contesto.properties"));
+			// properties.load(FileProperties.class.getClassLoader().getResourceAsStream("contesto.properties"));
 			properties.load(new FileInputStream("contesto.properties"));
 
 		} catch (IOException ex) {
