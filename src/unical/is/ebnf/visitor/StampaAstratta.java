@@ -8,25 +8,24 @@ import unical.is.ebnf.grammar.operando.Costante;
 import unical.is.ebnf.grammar.operando.Variabile;
 import unical.is.ebnf.grammar.operatore.Divisione;
 import unical.is.ebnf.grammar.operatore.Moltiplicazione;
-import unical.is.ebnf.grammar.operatore.Operatore;
 import unical.is.ebnf.grammar.operatore.Somma;
 import unical.is.ebnf.grammar.operatore.Sottrazione;
-import unical.is.ebnf.visitor.stampa.Rappresentazione;
 
 /**
  * @author Marilena Paldino
- * 
  */
-public abstract class StampaAstratta implements Visitatore {
+public abstract class StampaAstratta extends VisitatoreAstratto<String> implements Visitatore {
 
-	protected String	valore;
-
-	protected abstract Rappresentazione getRappresentazione();
+	/**
+	 * @param string
+	 * @return
+	 */
+	protected abstract Operazione<String> getRappresentazione(String string);
 
 	public String stampa(Espressione espressione) {
 		espressione.ricevi(this);
 
-		return valore;
+		return getValore();
 	}
 
 	/**
@@ -34,7 +33,7 @@ public abstract class StampaAstratta implements Visitatore {
 	 */
 	@Override
 	public void visita(Costante costante) {
-		this.valore = costante.getValue();
+		setValore(costante.getValue());
 	}
 
 	/**
@@ -42,7 +41,7 @@ public abstract class StampaAstratta implements Visitatore {
 	 */
 	@Override
 	public void visita(Variabile variabile) {
-		this.valore = variabile.getValue();
+		setValore(variabile.getValue());
 	}
 
 	/**
@@ -50,7 +49,7 @@ public abstract class StampaAstratta implements Visitatore {
 	 */
 	@Override
 	public void visita(Divisione divisione) {
-		visitaOperatore(divisione, "/");
+		visitaOperatore(divisione, getRappresentazione("/"));
 	}
 
 	/**
@@ -58,7 +57,7 @@ public abstract class StampaAstratta implements Visitatore {
 	 */
 	@Override
 	public void visita(Moltiplicazione moltiplicazione) {
-		visitaOperatore(moltiplicazione, "*");
+		visitaOperatore(moltiplicazione, getRappresentazione("*"));
 	}
 
 	/**
@@ -66,7 +65,7 @@ public abstract class StampaAstratta implements Visitatore {
 	 */
 	@Override
 	public void visita(Somma somma) {
-		visitaOperatore(somma, "+");
+		visitaOperatore(somma, getRappresentazione("+"));
 	}
 
 	/**
@@ -74,19 +73,6 @@ public abstract class StampaAstratta implements Visitatore {
 	 */
 	@Override
 	public void visita(Sottrazione sottrazione) {
-		visitaOperatore(sottrazione, "-");
-	}
-
-	/**
-	 * @param operatore
-	 * @param simboloOperatore
-	 */
-	private void visitaOperatore(Operatore operatore, String simboloOperatore) {
-		operatore.getLeft().ricevi(this);
-		String valore1 = this.valore;
-		operatore.getRight().ricevi(this);
-		String valore2 = this.valore;
-
-		this.valore = getRappresentazione().rappresenta(valore1, valore2, simboloOperatore);
+		visitaOperatore(sottrazione, getRappresentazione("-"));
 	}
 }

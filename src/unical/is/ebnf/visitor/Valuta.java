@@ -8,7 +8,6 @@ import unical.is.ebnf.grammar.operando.Costante;
 import unical.is.ebnf.grammar.operando.Variabile;
 import unical.is.ebnf.grammar.operatore.Divisione;
 import unical.is.ebnf.grammar.operatore.Moltiplicazione;
-import unical.is.ebnf.grammar.operatore.Operatore;
 import unical.is.ebnf.grammar.operatore.Somma;
 import unical.is.ebnf.grammar.operatore.Sottrazione;
 import unical.is.ebnf.visitor.contesto.Contesto;
@@ -16,18 +15,16 @@ import unical.is.ebnf.visitor.contesto.Contesto;
 /**
  * @author Marilena Paldino
  */
-public class Valuta implements Visitatore {
+public class Valuta extends VisitatoreAstratto<Double> implements Visitatore {
 
 	private Contesto contesto;
-
-	private double valore;
 
 	public int valuta(Espressione espressione, Contesto contesto) {
 		this.contesto = contesto;
 
 		espressione.ricevi(this);
 
-		return Double.valueOf(valore).intValue();
+		return Double.valueOf(getValore()).intValue();
 	}
 
 	/**
@@ -35,7 +32,7 @@ public class Valuta implements Visitatore {
 	 */
 	@Override
 	public void visita(Costante costante) {
-		this.valore = Double.parseDouble(costante.getValue());
+		setValore(Double.parseDouble(costante.getValue()));
 	}
 
 	/**
@@ -43,7 +40,7 @@ public class Valuta implements Visitatore {
 	 */
 	@Override
 	public void visita(Variabile variabile) {
-		this.valore = contesto.getValore(variabile.getValue());
+		setValore(contesto.getValore(variabile.getValue()));
 	}
 
 	/**
@@ -51,10 +48,10 @@ public class Valuta implements Visitatore {
 	 */
 	@Override
 	public void visita(Divisione divisione) {
-		visitaOperatore(divisione, new Operazione() {
+		visitaOperatore(divisione, new Operazione<Double>() {
 
 			@Override
-			public double esegui(double operatore1, double operatore2) {
+			public Double elabora(Double operatore1, Double operatore2) {
 				return operatore1 / operatore2;
 			}
 		});
@@ -65,10 +62,10 @@ public class Valuta implements Visitatore {
 	 */
 	@Override
 	public void visita(Moltiplicazione moltiplicazione) {
-		visitaOperatore(moltiplicazione, new Operazione() {
+		visitaOperatore(moltiplicazione, new Operazione<Double>() {
 
 			@Override
-			public double esegui(double operatore1, double operatore2) {
+			public Double elabora(Double operatore1, Double operatore2) {
 				return operatore1 * operatore2;
 			}
 		});
@@ -79,10 +76,10 @@ public class Valuta implements Visitatore {
 	 */
 	@Override
 	public void visita(Somma somma) {
-		visitaOperatore(somma, new Operazione() {
+		visitaOperatore(somma, new Operazione<Double>() {
 
 			@Override
-			public double esegui(double operatore1, double operatore2) {
+			public Double elabora(Double operatore1, Double operatore2) {
 				return operatore1 + operatore2;
 			}
 		});
@@ -93,38 +90,12 @@ public class Valuta implements Visitatore {
 	 */
 	@Override
 	public void visita(Sottrazione sottrazione) {
-		visitaOperatore(sottrazione, new Operazione() {
+		visitaOperatore(sottrazione, new Operazione<Double>() {
 
 			@Override
-			public double esegui(double operatore1, double operatore2) {
+			public Double elabora(Double operatore1, Double operatore2) {
 				return operatore1 - operatore2;
 			}
 		});
-	}
-
-	/**
-	 * @param operatore
-	 * @param operazione
-	 */
-	private void visitaOperatore(Operatore operatore, Operazione operazione) {
-		operatore.getLeft().ricevi(this);
-		double valore1 = this.valore;
-		operatore.getRight().ricevi(this);
-		double valore2 = this.valore;
-
-		this.valore = operazione.esegui(valore1, valore2);
-	}
-
-	/**
-	 * @author Marilena Paldino
-	 */
-	private interface Operazione {
-
-		/**
-		 * @param operatore1
-		 * @param operatore2
-		 * @return
-		 */
-		double esegui(double operatore1, double operatore2);
 	}
 }
