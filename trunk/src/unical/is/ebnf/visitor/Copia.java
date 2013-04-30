@@ -13,6 +13,6 @@ public class Copia extends CopiaAstratta {
 	public Espressione copia(Espressione espressione) {
 		espressione.ricevi(this);
 
-		return espressioneCopia;
+		return getValore();
 	}
 }

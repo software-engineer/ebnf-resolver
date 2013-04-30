@@ -11,8 +11,8 @@ import unical.is.ebnf.grammar.operando.Variabile;
  */
 public class Sostituisci extends CopiaAstratta {
 
-	private Variabile	variabile;
-	private Espressione	target;
+	private Variabile variabile;
+	private Espressione target;
 
 	public Espressione rimpiazza(Espressione espressione, Variabile variabile, Espressione target) {
 		this.variabile = variabile;
@@ -20,7 +20,7 @@ public class Sostituisci extends CopiaAstratta {
 
 		espressione.ricevi(this);
 
-		return espressioneCopia;
+		return getValore();
 	}
 
 	/**
@@ -29,9 +29,9 @@ public class Sostituisci extends CopiaAstratta {
 	@Override
 	public void visita(Variabile variabile) {
 		if (variabile.equals(this.variabile)) {
-			this.espressioneCopia = target;
+			setValore(target);
 		} else {
-			this.espressioneCopia = new Variabile(variabile.getValue());
+			setValore(new Variabile(variabile.getValue()));
 		}
 	}
 }
