@@ -10,11 +10,16 @@ import unical.is.ebnf.grammar.operatore.Operatore;
  */
 public abstract class VisitatoreAstratto<T> implements Visitatore {
 
-	private T valore;
+	/**
+	 * Valore corrente
+	 */
+	private T	valore;
 
 	/**
-	 * @param operatore
-	 * @param operazione
+	 * Visita di un generico operatore
+	 * 
+	 * @param operatore operatore da visitare
+	 * @param operazione operazione da effettuare
 	 */
 	protected void visitaOperatore(Operatore operatore, Operazione<T> operazione) {
 		operatore.getLeft().ricevi(this);
@@ -26,14 +31,18 @@ public abstract class VisitatoreAstratto<T> implements Visitatore {
 	}
 
 	/**
-	 * @return the valore
+	 * Restituisce il valore corrente
+	 * 
+	 * @return il valore
 	 */
 	public T getValore() {
 		return valore;
 	}
 
 	/**
-	 * @param valore the valore to set
+	 * Imposta il valore corrente
+	 * 
+	 * @param valore il valore da settare
 	 */
 	public void setValore(T valore) {
 		this.valore = valore;

@@ -15,10 +15,20 @@ import unical.is.ebnf.visitor.contesto.Contesto;
 /**
  * @author Marilena Paldino
  */
-public class Valuta extends VisitatoreAstratto<Double> implements Visitatore {
+public class Valuta extends VisitatoreAstratto<Double> {
 
-	private Contesto contesto;
+	/**
+	 * Istanza del contesto
+	 */
+	private Contesto	contesto;
 
+	/**
+	 * Entry point per la valutazione dell'espressione
+	 * 
+	 * @param espressione espressione da valutare
+	 * @param contesto contesto per la valutazione dell'espressione
+	 * @return risultato della valutazione dell'espressione
+	 */
 	public int valuta(Espressione espressione, Contesto contesto) {
 		this.contesto = contesto;
 
@@ -51,8 +61,8 @@ public class Valuta extends VisitatoreAstratto<Double> implements Visitatore {
 		visitaOperatore(divisione, new Operazione<Double>() {
 
 			@Override
-			public Double elabora(Double operatore1, Double operatore2) {
-				return operatore1 / operatore2;
+			public Double elabora(Double operando1, Double operando2) {
+				return operando1 / operando2;
 			}
 		});
 	}
@@ -65,8 +75,8 @@ public class Valuta extends VisitatoreAstratto<Double> implements Visitatore {
 		visitaOperatore(moltiplicazione, new Operazione<Double>() {
 
 			@Override
-			public Double elabora(Double operatore1, Double operatore2) {
-				return operatore1 * operatore2;
+			public Double elabora(Double operando1, Double operando2) {
+				return operando1 * operando2;
 			}
 		});
 	}
@@ -79,8 +89,8 @@ public class Valuta extends VisitatoreAstratto<Double> implements Visitatore {
 		visitaOperatore(somma, new Operazione<Double>() {
 
 			@Override
-			public Double elabora(Double operatore1, Double operatore2) {
-				return operatore1 + operatore2;
+			public Double elabora(Double operando1, Double operando2) {
+				return operando1 + operando2;
 			}
 		});
 	}
@@ -93,8 +103,8 @@ public class Valuta extends VisitatoreAstratto<Double> implements Visitatore {
 		visitaOperatore(sottrazione, new Operazione<Double>() {
 
 			@Override
-			public Double elabora(Double operatore1, Double operatore2) {
-				return operatore1 - operatore2;
+			public Double elabora(Double operando1, Double operando2) {
+				return operando1 - operando2;
 			}
 		});
 	}

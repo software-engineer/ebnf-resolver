@@ -11,9 +11,17 @@ import unical.is.ebnf.grammar.operando.Variabile;
  */
 public class Sostituisci extends CopiaAstratta {
 
-	private Variabile variabile;
-	private Espressione target;
+	private Variabile	variabile;
+	private Espressione	target;
 
+	/**
+	 * Entry point per il rimpiazza dell'espressione
+	 * 
+	 * @param espressione espressione da elaborare
+	 * @param variabile nome variabile da rimpiazzare
+	 * @param target espressione da sostituire alla variabile
+	 * @return espressione copia con sostituita la variabile con l'espressione target
+	 */
 	public Espressione rimpiazza(Espressione espressione, Variabile variabile, Espressione target) {
 		this.variabile = variabile;
 		this.target = target;
@@ -24,7 +32,8 @@ public class Sostituisci extends CopiaAstratta {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Override del metodo affinche possa controllare se la variabile è quella da sosituire. Se lo è, la sostituisce con il target,
+	 * altrimenti copia la variabile.
 	 */
 	@Override
 	public void visita(Variabile variabile) {

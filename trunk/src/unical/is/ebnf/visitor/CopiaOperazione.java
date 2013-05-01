@@ -11,7 +11,10 @@ import unical.is.ebnf.grammar.operatore.Operatore;
  */
 public class CopiaOperazione implements Operazione<Espressione> {
 
-	private final Operatore operatore;
+	/**
+	 * Istanza dell'operatore
+	 */
+	private final Operatore	operatore;
 
 	public CopiaOperazione(Operatore operatore) {
 		this.operatore = operatore;
