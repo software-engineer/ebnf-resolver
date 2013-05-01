@@ -8,13 +8,16 @@ package unical.is.ebnf.visitor.contesto;
  */
 public class PropertiesContesto implements Contesto {
 
-	FileProperties fileProperties = new FileProperties();
+	/**
+	 * Istanza concreta della classe fileProperties
+	 */
+	FileProperties	fileProperties	= new FileProperties();
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public double getValore(String variabile) {
-		return Double.parseDouble(fileProperties.leggiValore(variabile));
+		return Double.parseDouble(fileProperties.leggiProprieta(variabile));
 	}
 }

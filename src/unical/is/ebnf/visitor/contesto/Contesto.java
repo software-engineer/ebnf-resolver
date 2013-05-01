@@ -9,8 +9,10 @@ package unical.is.ebnf.visitor.contesto;
 public interface Contesto {
 
 	/**
-	 * @param variabile
-	 * @return
+	 * Recupera il valore della variabile
+	 * 
+	 * @param variabile variabile di cui recuperare il valore
+	 * @return il valore della variabile
 	 */
 	double getValore(String variabile);
 }

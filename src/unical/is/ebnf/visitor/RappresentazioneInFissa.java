@@ -8,7 +8,10 @@ package unical.is.ebnf.visitor;
  */
 public class RappresentazioneInFissa implements Operazione<String> {
 
-	private final String simboloOperatore;
+	/**
+	 * Simbolo dell'operatore da rappresentare
+	 */
+	private final String	simboloOperatore;
 
 	public RappresentazioneInFissa(String simboloOperatore) {
 		this.simboloOperatore = simboloOperatore;
@@ -18,15 +21,15 @@ public class RappresentazioneInFissa implements Operazione<String> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String elabora(String operatore1, String operatore2) {
+	public String elabora(String operando1, String operando2) {
 		StringBuffer buffer = new StringBuffer();
 
 		buffer.append("(")
-				.append(operatore1)
+				.append(operando1)
 				.append(", ")
 				.append(simboloOperatore)
 				.append(", ")
-				.append(operatore2)
+				.append(operando2)
 				.append(")");
 
 		return buffer.toString();

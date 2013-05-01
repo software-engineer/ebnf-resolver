@@ -14,14 +14,22 @@ import unical.is.ebnf.grammar.operatore.Sottrazione;
 /**
  * @author Marilena Paldino
  */
-public abstract class StampaAstratta extends VisitatoreAstratto<String> implements Visitatore {
+public abstract class StampaAstratta extends VisitatoreAstratto<String> {
 
 	/**
-	 * @param string
-	 * @return
+	 * Restituisce la giusta implementazione di operazione per la visita che si vuole ottenere, per il simbolo passatogli
+	 * 
+	 * @param simboloOperatore il simbolo dell'operatore che si vuole rappresentare
+	 * @return implementazione concreta dell'operazione
 	 */
-	protected abstract Operazione<String> getRappresentazione(String string);
+	protected abstract Operazione<String> getRappresentazione(String simboloOperatore);
 
+	/**
+	 * Entry point per la stampa dell'espressione
+	 * 
+	 * @param espressione espressione da stampare
+	 * @return stringa rappresentante l'erspressione
+	 */
 	public String stampa(Espressione espressione) {
 		espressione.ricevi(this);
 

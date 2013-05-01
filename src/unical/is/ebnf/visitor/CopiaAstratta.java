@@ -14,7 +14,7 @@ import unical.is.ebnf.grammar.operatore.Sottrazione;
 /**
  * @author Marilena Paldino
  */
-public abstract class CopiaAstratta extends VisitatoreAstratto<Espressione> implements Visitatore {
+public abstract class CopiaAstratta extends VisitatoreAstratto<Espressione> {
 
 	/**
 	 * {@inheritDoc}
