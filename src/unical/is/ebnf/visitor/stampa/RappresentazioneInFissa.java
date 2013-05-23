@@ -1,7 +1,9 @@
 /**
  * 
  */
-package unical.is.ebnf.visitor;
+package unical.is.ebnf.visitor.stampa;
+
+import unical.is.ebnf.visitor.Operazione;
 
 /**
  * @author Marilena Paldino

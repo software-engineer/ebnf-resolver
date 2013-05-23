@@ -1,9 +1,10 @@
 /**
  * 
  */
-package unical.is.ebnf.visitor;
+package unical.is.ebnf.visitor.copia;
 
 import unical.is.ebnf.grammar.Espressione;
+import unical.is.ebnf.grammar.operando.Variabile;
 
 /**
  * @author Marilena Paldino
@@ -20,5 +21,13 @@ public class Copia extends CopiaAstratta {
 		espressione.ricevi(this);
 
 		return getValore();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void visita(Variabile variabile) {
+		setValore(new Variabile(variabile.getValue()));
 	}
 }

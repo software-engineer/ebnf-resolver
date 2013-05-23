@@ -1,7 +1,7 @@
 /**
  * 
  */
-package unical.is.ebnf.visitor;
+package unical.is.ebnf.visitor.copia;
 
 import unical.is.ebnf.grammar.Espressione;
 import unical.is.ebnf.grammar.operando.Variabile;
