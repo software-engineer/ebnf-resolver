@@ -1,7 +1,7 @@
 /**
  * 
  */
-package unical.is.ebnf.visitor;
+package unical.is.ebnf.visitor.valuta;
 
 /**
  * @author Marilena Paldino

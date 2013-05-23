@@ -10,8 +10,8 @@ import unical.is.ebnf.grammar.operatore.Divisione;
 import unical.is.ebnf.grammar.operatore.Moltiplicazione;
 import unical.is.ebnf.grammar.operatore.Somma;
 import unical.is.ebnf.grammar.operatore.Sottrazione;
-import unical.is.ebnf.visitor.Operazione;
 import unical.is.ebnf.visitor.VisitatoreAstratto;
+import unical.is.ebnf.visitor.valuta.Operazione;
 
 /**
  * @author Marilena Paldino

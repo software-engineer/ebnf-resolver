@@ -5,7 +5,7 @@ package unical.is.ebnf.visitor.copia;
 
 import unical.is.ebnf.grammar.Espressione;
 import unical.is.ebnf.grammar.operatore.Operatore;
-import unical.is.ebnf.visitor.Operazione;
+import unical.is.ebnf.visitor.valuta.Operazione;
 
 /**
  * @author Marilena Paldino
