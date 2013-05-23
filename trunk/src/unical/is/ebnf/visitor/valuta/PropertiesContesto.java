@@ -13,7 +13,7 @@ public class PropertiesContesto implements Contesto {
 	/**
 	 * Istanza concreta della classe Properties
 	 */
-	Properties properties;
+	private final Properties properties;
 
 	/**
 	 * @param properties
