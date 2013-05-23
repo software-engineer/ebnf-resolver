@@ -24,9 +24,9 @@ public class RappresentazioneInFissa implements Operazione<String> {
 	 */
 	@Override
 	public String elabora(String operando1, String operando2) {
-		StringBuffer buffer = new StringBuffer();
+		StringBuilder builder = new StringBuilder();
 
-		buffer.append("(")
+		builder.append("(")
 				.append(operando1)
 				.append(", ")
 				.append(simboloOperatore)
@@ -34,7 +34,7 @@ public class RappresentazioneInFissa implements Operazione<String> {
 				.append(operando2)
 				.append(")");
 
-		return buffer.toString();
+		return builder.toString();
 	}
 
 }

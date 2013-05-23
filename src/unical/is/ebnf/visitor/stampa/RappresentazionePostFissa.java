@@ -24,9 +24,9 @@ public class RappresentazionePostFissa implements Operazione<String> {
 	 */
 	@Override
 	public String elabora(String operando1, String operando2) {
-		StringBuffer buffer = new StringBuffer();
+		StringBuilder builder = new StringBuilder();
 
-		buffer.append("(")
+		builder.append("(")
 				.append(operando1)
 				.append(", ")
 				.append(operando2)
@@ -34,7 +34,7 @@ public class RappresentazionePostFissa implements Operazione<String> {
 				.append(simboloOperatore)
 				.append(")");
 
-		return buffer.toString();
+		return builder.toString();
 	}
 
 }
