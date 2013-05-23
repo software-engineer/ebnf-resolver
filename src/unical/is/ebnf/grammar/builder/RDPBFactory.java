@@ -12,22 +12,18 @@ import unical.is.ebnf.parser.AnalizzatoreLessicale;
  */
 public class RDPBFactory {
 
-	public static Espressione parse(String espressione) {
+	public static Espressione parse(String espressione) throws IOException {
 		InputStream inputStream = new ByteArrayInputStream(espressione.getBytes());
 		return parse(inputStream);
 	}
 
-	public static Espressione parse(InputStream inputStream) {
+	public static Espressione parse(InputStream inputStream) throws IOException {
 		Espressione espressione = null;
 
 		AnalizzatoreLessicale analizzatoreLessicale = new AnalizzatoreLessicale(inputStream);
 		RDPB rdpb = new RDPB(analizzatoreLessicale);
 
-		try {
-			espressione = rdpb.build();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		espressione = rdpb.build();
 
 		return espressione;
 	}

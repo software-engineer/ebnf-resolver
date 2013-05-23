@@ -29,12 +29,16 @@ public class OperandoBuilderImpl implements OperandoBuilder {
 	public Operando build() {
 		Operando value;
 
-		if (stringValue.matches(regex)) {
+		if (iniziaConNumero()) {
 			value = new Costante(stringValue);
 		} else {
 			value = new Variabile(stringValue);
 		}
 
 		return value;
+	}
+
+	private boolean iniziaConNumero() {
+		return stringValue.matches(regex);
 	}
 }
