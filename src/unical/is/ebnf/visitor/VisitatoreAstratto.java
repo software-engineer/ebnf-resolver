@@ -4,6 +4,7 @@
 package unical.is.ebnf.visitor;
 
 import unical.is.ebnf.grammar.operatore.Operatore;
+import unical.is.ebnf.visitor.valuta.Operazione;
 
 /**
  * @author Marilena Paldino

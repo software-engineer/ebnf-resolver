@@ -4,11 +4,10 @@ import unical.is.ebnf.visitor.Visitatore;
 
 /**
  * @author Marilena Paldino
- * 
  */
 public class Variabile implements Operando {
 
-	private final String	value;
+	private final String value;
 
 	public Variabile(String value) {
 		this.value = value;
@@ -34,14 +33,30 @@ public class Variabile implements Operando {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((value == null) ? 0 : value.hashCode());
+		return result;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (getClass() != obj.getClass()) return false;
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
 		Variabile other = (Variabile) obj;
 		if (value == null) {
-			if (other.value != null) return false;
-		} else if (!value.equals(other.value)) return false;
+			if (other.value != null)
+				return false;
+		} else if (!value.equals(other.value))
+			return false;
 		return true;
 	}
 }
