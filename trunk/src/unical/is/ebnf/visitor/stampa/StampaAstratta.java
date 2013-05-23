@@ -1,7 +1,7 @@
 /**
  * 
  */
-package unical.is.ebnf.visitor;
+package unical.is.ebnf.visitor.stampa;
 
 import unical.is.ebnf.grammar.Espressione;
 import unical.is.ebnf.grammar.operando.Costante;
@@ -10,6 +10,8 @@ import unical.is.ebnf.grammar.operatore.Divisione;
 import unical.is.ebnf.grammar.operatore.Moltiplicazione;
 import unical.is.ebnf.grammar.operatore.Somma;
 import unical.is.ebnf.grammar.operatore.Sottrazione;
+import unical.is.ebnf.visitor.Operazione;
+import unical.is.ebnf.visitor.VisitatoreAstratto;
 
 /**
  * @author Marilena Paldino
